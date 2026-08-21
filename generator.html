@@ -1,0 +1,67 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="QR Studio — professional browser-based QR code generator with 200+ use cases."><title>Create QR — QR Studio</title><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script><link rel="stylesheet" href="assets/css/style.css"></head><body>
+<nav class="navbar navbar-expand-lg fixed-top">
+ <div class="container py-2">
+  <a class="navbar-brand d-flex align-items-center gap-2 brand" href="index.html"><span class="brand-mark">QR</span> QR Studio</a>
+  <button class="navbar-toggler border-0" data-bs-toggle="offcanvas" data-bs-target="#mobileNav"><i class="bi bi-list fs-3"></i></button>
+  <div class="collapse navbar-collapse">
+   <ul class="navbar-nav ms-4 gap-lg-2">
+    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+    <li class="nav-item"><a class="nav-link" href="generator.html">Create QR</a></li>
+    <li class="nav-item"><a class="nav-link" href="types.html">QR Types</a></li>
+    <li class="nav-item"><a class="nav-link" href="templates.html">Templates</a></li>
+    <li class="nav-item"><a class="nav-link" href="batch.html">Batch</a></li>
+    <li class="nav-item"><a class="nav-link" href="dashboard.html">My QR Codes</a></li>
+   </ul>
+   <div class="ms-auto d-flex align-items-center gap-2">
+    <div class="search-box d-none d-xl-block" style="width:230px"><i class="bi bi-search"></i><input id="globalSearch" class="form-control form-control-sm" placeholder="Search QR types..."></div>
+    <button class="btn btn-sm btn-outline-secondary" data-bs-toggle="offcanvas" data-bs-target="#settingsPanel"><i class="bi bi-sliders"></i></button>
+   </div>
+  </div>
+ </div>
+</nav>
+<div class="offcanvas offcanvas-end" tabindex="-1" id="mobileNav">
+ <div class="offcanvas-header"><h5 class="fw-bold">QR Studio</h5><button class="btn-close" data-bs-dismiss="offcanvas"></button></div>
+ <div class="offcanvas-body">
+  <div class="search-box mb-4"><i class="bi bi-search"></i><input id="mobileSearch" class="form-control" placeholder="Search QR types..."></div>
+  <div class="d-grid gap-2">
+   <a class="btn btn-light text-start" href="index.html">Home</a><a class="btn btn-light text-start" href="generator.html">Create QR</a><a class="btn btn-light text-start" href="types.html">QR Types</a><a class="btn btn-light text-start" href="templates.html">Templates</a><a class="btn btn-light text-start" href="batch.html">Batch</a><a class="btn btn-light text-start" href="dashboard.html">My QR Codes</a>
+  </div>
+ </div>
+</div>
+<div class="offcanvas offcanvas-end" tabindex="-1" id="settingsPanel">
+ <div class="offcanvas-header"><h5 class="fw-bold">Appearance</h5><button class="btn-close" data-bs-dismiss="offcanvas"></button></div>
+ <div class="offcanvas-body">
+  <p class="muted">Choose your preferred interface theme.</p>
+  <div id="themeToggle" class="d-grid gap-2">
+   <button class="btn btn-outline-secondary" data-theme-choice="light"><i class="bi bi-sun me-2"></i>Light</button>
+   <button class="btn btn-outline-secondary" data-theme-choice="dark"><i class="bi bi-moon me-2"></i>Dark</button>
+   <button class="btn btn-outline-secondary" data-theme-choice="system"><i class="bi bi-circle-half me-2"></i>System</button>
+  </div>
+ </div>
+</div>
+<main class="page">
+<section class="section pt-4"><div class="container">
+ <div class="d-flex justify-content-between align-items-end mb-4"><div><div class="eyebrow"><i class="bi bi-qr-code"></i> QR Generator</div><h1 class="section-title display-6 mt-3">Create your QR code</h1><p class="muted mb-0">Choose a use case, add your data and customize the result.</p></div><a href="types.html" class="btn btn-outline-secondary">Browse types</a></div>
+ <div class="row g-4">
+  <div class="col-lg-4"><div class="card-pro p-4"><h5 class="fw-bold">1. Choose type</h5><div class="search-box mt-3"><i class="bi bi-search"></i><input id="typeSearch" class="form-control" placeholder="Search QR types..."></div><select id="typeSelect" class="form-select mt-3"></select><div id="typeInfo" class="mt-3"></div><hr><h5 class="fw-bold">2. Your data</h5><form id="dynamicForm" class="mt-3" novalidate></form></div></div>
+  <div class="col-lg-4"><div class="card-pro p-4 sticky-panel"><div class="d-flex justify-content-between align-items-center mb-3"><div><h5 class="fw-bold mb-1" id="previewTitle">QR Preview</h5><div class="small muted" id="previewType">Basic & Web</div></div><span id="saveStatus" class="small muted">Not saved</span></div><div class="qr-preview print-card"><div class="preview-shell"><div id="qrCanvas"></div></div></div><div class="mt-3"><div class="small fw-semibold mb-1">Encoded data</div><pre id="encodedData" class="small p-3 rounded-3" style="white-space:pre-wrap;background:var(--surface-2);max-height:150px;overflow:auto">Enter data to generate.</pre></div><img id="logoPreview" class="d-none mt-2 rounded-3" style="max-width:80px;max-height:80px" alt="Uploaded logo"></div></div>
+  <div class="col-lg-4"><div class="card-pro p-4" id="customControls"><h5 class="fw-bold">3. Customize</h5><label class="form-label mt-3">Project title</label><input id="projectTitle" class="form-control" placeholder="My QR code">
+  <div class="row g-2 mt-1"><div class="col-6"><label class="form-label">Foreground</label><input id="fgColor" class="form-control form-control-color w-100" type="color" value="#111827"></div><div class="col-6"><label class="form-label">Background</label><input id="bgColor" class="form-control form-control-color w-100" type="color" value="#ffffff"></div></div>
+  <label class="form-label mt-3">Dot style</label><select id="dotsStyle" class="form-select"><option value="rounded">Rounded</option><option value="square">Square</option><option value="dots">Dots</option><option value="classy">Classy</option><option value="classy-rounded">Classy rounded</option></select>
+  <label class="form-label mt-3">Eye style</label><select id="eyeStyle" class="form-select"><option value="extra-rounded">Extra rounded</option><option value="square">Square</option><option value="dot">Dot</option></select>
+  <label class="form-label mt-3">Error correction</label><select id="errorCorrection" class="form-select"><option value="L">Low</option><option value="M" selected>Medium</option><option value="Q">Quartile</option><option value="H">High</option></select>
+  <div class="row g-2 mt-1"><div class="col-6"><label class="form-label">Size</label><input id="qrSize" type="number" min="128" max="2048" step="32" value="330" class="form-control"></div><div class="col-6"><label class="form-label">Margin</label><input id="qrMargin" type="number" min="0" max="60" value="10" class="form-control"></div></div>
+  <label class="form-label mt-3">Logo <span class="muted">(optional)</span></label><input id="logoUpload" type="file" accept=".png,.jpg,.jpeg,.svg,image/png,image/jpeg,image/svg+xml" class="form-control"><div class="row g-2"><div class="col-6"><label class="form-label mt-2">Logo size</label><input id="logoSize" type="number" min=".1" max=".45" step=".01" value=".25" class="form-control"></div><div class="col-6"><label class="form-label mt-2">Logo padding</label><input id="logoPadding" type="number" min="0" max="30" value="6" class="form-control"></div></div>
+  <div class="action-bar mt-4"><div class="d-grid gap-2"><div class="row g-2"><div class="col-4"><button id="generateBtn" class="btn btn-primary w-100">Generate</button></div><div class="col-4"><button id="saveBtn" class="btn btn-outline-secondary w-100">Save</button></div><div class="col-4"><button id="duplicateBtn" class="btn btn-outline-secondary w-100">Duplicate</button></div></div><div class="row g-2"><div class="col-4"><button id="downloadPng" class="btn btn-dark w-100">PNG</button></div><div class="col-4"><button id="downloadJpg" class="btn btn-outline-secondary w-100">JPG</button></div><div class="col-4"><button id="downloadWebp" class="btn btn-outline-secondary w-100">WebP</button></div></div><div class="row g-2"><div class="col-4"><button id="printBtn" class="btn btn-outline-secondary w-100"><i class="bi bi-printer"></i></button></div><div class="col-4"><button id="copyBtn" class="btn btn-outline-secondary w-100"><i class="bi bi-copy"></i></button></div><div class="col-4"><button id="shareBtn" class="btn btn-outline-secondary w-100"><i class="bi bi-share"></i></button></div></div></div></div>
+  </div></div>
+ </div>
+</div></section>
+</main>
+<footer><div class="container"><div class="row g-4">
+ <div class="col-lg-5"><div class="d-flex align-items-center gap-2 brand mb-3"><span class="brand-mark">QR</span> QR Studio</div><p class="muted">Create, customize and manage QR codes directly in your browser.</p></div>
+ <div class="col-6 col-lg-2"><h6 class="fw-bold">Product</h6><div class="d-grid gap-2 small muted"><a href="generator.html">QR Generator</a><a href="types.html">QR Types</a><a href="templates.html">Templates</a><a href="batch.html">Batch</a></div></div>
+ <div class="col-6 col-lg-2"><h6 class="fw-bold">Resources</h6><div class="d-grid gap-2 small muted"><a href="help.html">Help</a><a href="help.html#faq">FAQ</a><a href="about.html">About</a></div></div>
+ <div class="col-6 col-lg-2"><h6 class="fw-bold">Legal</h6><div class="d-grid gap-2 small muted"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></div></div>
+</div><hr class="my-4" style="border-color:var(--border)"><div class="d-flex justify-content-between small muted"><span>© <span id="year"></span> QR Studio</span><span>Built for the web.</span></div></div></footer>
+<div id="toastContainer" class="toast-container position-fixed top-0 end-0 p-3"></div>
+<script src="https://unpkg.com/qr-code-styling/lib/qr-code-styling.js"></script><script src="assets/js/app.js"></script><script src="assets/js/qr-types.js"></script><script src="assets/js/qr-engine.js"></script><script src="assets/js/generator.js"></script></body></html>

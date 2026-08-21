@@ -1,0 +1,50 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="QR Studio — professional browser-based QR code generator with 200+ use cases."><title>About — QR Studio</title><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script><link rel="stylesheet" href="assets/css/style.css"></head><body>
+<nav class="navbar navbar-expand-lg fixed-top">
+ <div class="container py-2">
+  <a class="navbar-brand d-flex align-items-center gap-2 brand" href="index.html"><span class="brand-mark">QR</span> QR Studio</a>
+  <button class="navbar-toggler border-0" data-bs-toggle="offcanvas" data-bs-target="#mobileNav"><i class="bi bi-list fs-3"></i></button>
+  <div class="collapse navbar-collapse">
+   <ul class="navbar-nav ms-4 gap-lg-2">
+    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+    <li class="nav-item"><a class="nav-link" href="generator.html">Create QR</a></li>
+    <li class="nav-item"><a class="nav-link" href="types.html">QR Types</a></li>
+    <li class="nav-item"><a class="nav-link" href="templates.html">Templates</a></li>
+    <li class="nav-item"><a class="nav-link" href="batch.html">Batch</a></li>
+    <li class="nav-item"><a class="nav-link" href="dashboard.html">My QR Codes</a></li>
+   </ul>
+   <div class="ms-auto d-flex align-items-center gap-2">
+    <div class="search-box d-none d-xl-block" style="width:230px"><i class="bi bi-search"></i><input id="globalSearch" class="form-control form-control-sm" placeholder="Search QR types..."></div>
+    <button class="btn btn-sm btn-outline-secondary" data-bs-toggle="offcanvas" data-bs-target="#settingsPanel"><i class="bi bi-sliders"></i></button>
+   </div>
+  </div>
+ </div>
+</nav>
+<div class="offcanvas offcanvas-end" tabindex="-1" id="mobileNav">
+ <div class="offcanvas-header"><h5 class="fw-bold">QR Studio</h5><button class="btn-close" data-bs-dismiss="offcanvas"></button></div>
+ <div class="offcanvas-body">
+  <div class="search-box mb-4"><i class="bi bi-search"></i><input id="mobileSearch" class="form-control" placeholder="Search QR types..."></div>
+  <div class="d-grid gap-2">
+   <a class="btn btn-light text-start" href="index.html">Home</a><a class="btn btn-light text-start" href="generator.html">Create QR</a><a class="btn btn-light text-start" href="types.html">QR Types</a><a class="btn btn-light text-start" href="templates.html">Templates</a><a class="btn btn-light text-start" href="batch.html">Batch</a><a class="btn btn-light text-start" href="dashboard.html">My QR Codes</a>
+  </div>
+ </div>
+</div>
+<div class="offcanvas offcanvas-end" tabindex="-1" id="settingsPanel">
+ <div class="offcanvas-header"><h5 class="fw-bold">Appearance</h5><button class="btn-close" data-bs-dismiss="offcanvas"></button></div>
+ <div class="offcanvas-body">
+  <p class="muted">Choose your preferred interface theme.</p>
+  <div id="themeToggle" class="d-grid gap-2">
+   <button class="btn btn-outline-secondary" data-theme-choice="light"><i class="bi bi-sun me-2"></i>Light</button>
+   <button class="btn btn-outline-secondary" data-theme-choice="dark"><i class="bi bi-moon me-2"></i>Dark</button>
+   <button class="btn btn-outline-secondary" data-theme-choice="system"><i class="bi bi-circle-half me-2"></i>System</button>
+  </div>
+ </div>
+</div>
+<main class="page"><section class="section pt-4"><div class="container"><div class="row g-5"><div class="col-lg-7"><div class="eyebrow">About QR Studio</div><h1 class="section-title display-6 mt-3">A local-first QR workspace for everyday use.</h1><p class="muted">QR Studio is designed for individuals, creators, businesses, educators, restaurants, events and developers who need fast QR creation without a complicated workflow.</p><h4 class="fw-bold mt-5">Static first</h4><p class="muted">Static QR codes store the payload directly in the code. This build generates those codes in the browser. A future backend can add dynamic redirects, accounts and scan analytics.</p><h4 class="fw-bold mt-4">Built to extend</h4><p class="muted">The QR type registry is configuration-driven, so new types can be added without creating a new page for every use case.</p></div><div class="col-lg-5"><div class="card-pro p-4"><h5 class="fw-bold">Included</h5><ul class="muted lh-lg"><li>200 QR use cases</li><li>Dynamic forms</li><li>Live styling</li><li>Local saved projects</li><li>Batch CSV workflow</li><li>Responsive UI</li><li>Dark mode</li><li>Accessible controls</li></ul></div></div></div></div></section></main>
+<footer><div class="container"><div class="row g-4">
+ <div class="col-lg-5"><div class="d-flex align-items-center gap-2 brand mb-3"><span class="brand-mark">QR</span> QR Studio</div><p class="muted">Create, customize and manage QR codes directly in your browser.</p></div>
+ <div class="col-6 col-lg-2"><h6 class="fw-bold">Product</h6><div class="d-grid gap-2 small muted"><a href="generator.html">QR Generator</a><a href="types.html">QR Types</a><a href="templates.html">Templates</a><a href="batch.html">Batch</a></div></div>
+ <div class="col-6 col-lg-2"><h6 class="fw-bold">Resources</h6><div class="d-grid gap-2 small muted"><a href="help.html">Help</a><a href="help.html#faq">FAQ</a><a href="about.html">About</a></div></div>
+ <div class="col-6 col-lg-2"><h6 class="fw-bold">Legal</h6><div class="d-grid gap-2 small muted"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></div></div>
+</div><hr class="my-4" style="border-color:var(--border)"><div class="d-flex justify-content-between small muted"><span>© <span id="year"></span> QR Studio</span><span>Built for the web.</span></div></div></footer>
+<div id="toastContainer" class="toast-container position-fixed top-0 end-0 p-3"></div>
+<script src="assets/js/app.js"></script></body></html>
